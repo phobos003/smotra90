@@ -1,0 +1,600 @@
+"use client"
+
+import { useEffect, useState, useRef } from "react"
+import Image from "next/image"
+
+export default function Home(){
+
+const images = [
+"/foto/1.jpeg",
+"/foto/2.jpeg",
+"/foto/3.jpeg",
+"/foto/4.jpeg",
+"/foto/5.jpeg",
+"/foto/6.jpeg"
+]
+
+const [selected,setSelected] = useState<number | null>(null)
+const [menuOpen,setMenuOpen] = useState(false)
+const [darkMode,setDarkMode] = useState(false)
+
+const galleryRef = useRef<HTMLDivElement>(null)
+
+useEffect(() => {
+
+if ("scrollRestoration" in history) {
+history.scrollRestoration = "manual"
+}
+
+window.scrollTo(0,0)
+
+setTimeout(()=>{
+window.scrollTo(0,0)
+},50)
+
+if(window.location.hash){
+history.replaceState(null,"",window.location.pathname)
+}
+
+const handleScroll = () => {
+
+const nav = document.querySelector(".nav")
+const scrollBtn = document.querySelector(".scrollTop")
+
+if(nav){
+if(window.scrollY > 50){
+nav.classList.add("scrolled")
+}else{
+nav.classList.remove("scrolled")
+}
+}
+
+if(scrollBtn){
+if(window.scrollY > 600){
+scrollBtn.classList.add("show")
+}else{
+scrollBtn.classList.remove("show")
+}
+}
+
+}
+
+window.addEventListener("scroll",handleScroll)
+
+const observer = new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("visible")
+}
+})
+},{
+threshold:0.2
+})
+
+document.querySelectorAll(".fadeUp").forEach(el=>{
+observer.observe(el)
+})
+
+return () => window.removeEventListener("scroll",handleScroll)
+
+},[])
+
+useEffect(()=>{
+
+if (window.innerWidth <= 768) return
+
+const el = galleryRef.current
+if(!el) return
+
+const interval = setInterval(()=>{
+
+if(el.scrollWidth - el.scrollLeft - el.clientWidth < 50){
+el.scrollTo({ left:0, behavior:"smooth" })
+}else{
+el.scrollBy({ left:320, behavior:"smooth" })
+}
+
+},3000)
+
+return ()=>clearInterval(interval)
+
+},[])
+
+useEffect(() => {
+const saved = localStorage.getItem('theme')
+if (saved === 'dark') {
+setDarkMode(true)
+document.body.classList.add('dark')
+}
+}, [])
+
+const toggleDark = () => {
+const next = !darkMode
+setDarkMode(next)
+document.body.classList.toggle('dark', next)
+localStorage.setItem('theme', next ? 'dark' : 'light')
+}
+
+const closeMenu = ()=> setMenuOpen(false)
+
+return(
+
+<main>
+
+<section className="ticker">
+
+<div className="tickerTrack">
+
+<span>Панорамный вид на Москву</span>
+<span>90 этаж Москва‑Сити</span>
+<span>Бесплатное мороженое</span>
+<span>Фотосессии</span>
+<span>Экскурсия с гидом</span>
+<span>360° обзор столицы</span>
+
+<span>Панорамный вид на Москву</span>
+<span>90 этаж Москва‑Сити</span>
+<span>Бесплатное мороженое</span>
+<span>Фотосессии</span>
+<span>Экскурсия с гидом</span>
+<span>360° обзор столицы</span>
+
+</div>
+
+</section>
+
+<nav className="nav">
+
+<div className="logo">
+<Image
+src="/foto/logo.jpeg"
+alt="Высота 90"
+width={160}
+height={60}
+priority
+style={{objectFit:"contain"}}
+/>
+</div>
+
+<div className={`menu ${menuOpen ? "open" : ""}`}>
+<a href="#hero" onClick={closeMenu}>Главная</a>
+<a href="#tickets" onClick={closeMenu}>Билеты</a>
+<a href="#about" onClick={closeMenu}>О площадке</a>
+<a href="#contacts" onClick={closeMenu}>Контакты</a>
+</div>
+
+<div className="navRight">
+
+<button className="themeToggle" onClick={toggleDark} aria-label="Переключить тему" />
+
+<a href="#tickets" className="heroButton">
+Купить билет
+</a>
+
+<div
+className="burger"
+onClick={()=>setMenuOpen(!menuOpen)}
+>
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+</div>
+
+</nav>
+
+<section id="hero" className="hero">
+
+<video autoPlay muted loop playsInline className="heroVideo">
+<source src="/video/moscow.mp4" type="video/mp4"/>
+</video>
+
+<div className="heroContent">
+
+<h1>Высота 90</h1>
+
+<p>
+Панорамная смотровая площадка в Москва‑Сити.
+Откройте захватывающий вид на столицу с высоты 90 этажа.
+</p>
+
+<p>
+Москва как на ладони: небоскрёбы делового центра,
+изгиб Москвы‑реки и самые красивые закаты города.
+</p>
+
+<a href="#tickets" className="buyButton">
+Купить билет
+</a>
+
+</div>
+
+</section>
+
+<section className="features fadeUp">
+
+<div className="feature">
+<h3>🍦</h3>
+<p>Бесплатное мороженое для гостей</p>
+</div>
+
+<div className="feature">
+<h3>📸</h3>
+<p>Фотосессия на панорамной площадке</p>
+</div>
+
+<div className="feature">
+<h3>🎤</h3>
+<p>Экскурсия с профессиональным гидом</p>
+</div>
+
+<div className="feature">
+<h3>🎉</h3>
+<p>Развлекательная программа</p>
+</div>
+
+<div className="feature">
+<h3>90 этаж</h3>
+<p>Панорамный вид на Москву с высоты</p>
+</div>
+
+<div className="feature">
+<h3>360°</h3>
+<p>Полный обзор города и небоскрёбов</p>
+</div>
+
+</section>
+
+<section className="included fadeUp">
+
+<h2>Что входит в билет</h2>
+
+<div className="includedGrid">
+
+<div className="includedItem">
+<h3>🍦 Бесплатное мороженое</h3>
+<p>Каждый гость получает мороженое во время посещения.</p>
+</div>
+
+<div className="includedItem">
+<h3>📸 Фотосессия</h3>
+<p>Сделайте яркие фотографии с видом на Москву‑Сити.</p>
+</div>
+
+<div className="includedItem">
+<h3>🎤 Экскурсия</h3>
+<p>Профессиональный гид расскажет о небоскрёбах и истории района.</p>
+</div>
+
+<div className="includedItem">
+<h3>🎉 Развлекательная программа</h3>
+<p>Музыка, атмосфера праздника и незабываемые эмоции.</p>
+</div>
+
+</div>
+
+</section>
+
+<section className="premium">
+
+<div className="premiumRow">
+
+<div className="premiumImage">
+<Image
+src="/foto/icecream.jpeg"
+alt="Мороженое"
+width={500}
+height={300}
+style={{
+objectFit:"cover",
+width:"100%",
+height:"100%"
+}}
+/>
+</div>
+
+<div className="premiumContent">
+<h2>Бесплатное мороженое</h2>
+<div className="line"></div>
+<p>
+Каждому гостю — бесплатное мороженое во время посещения.
+</p>
+<div className="circle">1</div>
+</div>
+
+</div>
+
+<div className="premiumRow reverse">
+
+<div className="premiumImage">
+<Image
+src="/foto/photo.jpeg"
+alt="Фотосессия"
+width={500}
+height={300}
+style={{
+objectFit:"cover",
+width:"100%",
+height:"100%"
+}}
+/>
+</div>
+
+<div className="premiumContent">
+<h2>Фотосессия</h2>
+<div className="line"></div>
+<p>
+Идеальные фото с панорамным видом на Москву. Проффесиональный фотограф сделает снимки и распечатает.
+</p>
+<div className="circle">2</div>
+</div>
+
+</div>
+
+<div className="premiumRow">
+
+<div className="premiumImage">
+<Image
+src="/foto/3.jpeg"
+alt="Экскурсия"
+width={500}
+height={300}
+style={{
+objectFit:"cover",
+width:"100%",
+height:"100%"
+}}
+/>
+</div>
+
+<div className="premiumContent">
+<h2>Экскурсия с гидом</h2>
+<div className="line"></div>
+<p>
+Узнайте историю Москва‑Сити и небоскрёбов.
+</p>
+<div className="circle">3</div>
+</div>
+
+</div>
+
+</section>
+
+<section className="panorama fadeUp">
+
+<div className="panoramaContent">
+
+<h2>Москва с высоты</h2>
+
+<p>
+Панорамный вид на столицу с высоты 90 этажа.
+Небоскрёбы Москва‑Сити, изгиб Москвы‑реки
+и бескрайний городской горизонт.
+</p>
+
+</div>
+
+</section>
+
+<section className="gallery fadeUp">
+
+<h2>Галерея</h2>
+
+<div className="galleryGrid" ref={galleryRef}>
+
+{images.map((src,index)=>(
+<div
+className="galleryItem"
+key={index}
+onClick={()=>setSelected(index)}
+>
+
+<Image
+src={src}
+alt="Москва-Сити"
+fill
+sizes="(max-width:768px) 100vw, 33vw"
+style={{objectFit:"cover"}}
+/>
+
+</div>
+))}
+
+</div>
+
+</section>
+
+<section id="tickets" className="tickets fadeUp">
+
+<h2>Билеты</h2>
+
+<div className="ticketGrid">
+
+<div className="ticketCard">
+<h3>Стандарт</h3>
+<p>Доступ на смотровую площадку и свободное время для прогулки.</p>
+<span className="price">900 ₽</span>
+<button>Купить</button>
+</div>
+
+<div className="ticketCard featured">
+<span className="badge">Популярный</span>
+<h3>Закат</h3>
+<p>Посещение площадки в самое красивое время дня.</p>
+<span className="price">1200 ₽</span>
+<button>Купить</button>
+</div>
+
+<div className="ticketCard vip">
+<h3>VIP</h3>
+<p>Отдельная зона отдыха и лучшие виды на город.</p>
+<span className="price">2500 ₽</span>
+<button>Купить</button>
+</div>
+
+</div>
+
+</section>
+
+<section id="about" className="about fadeUp">
+
+<h2>О площадке</h2>
+
+<p>
+Высота 90 — современная панорамная смотровая площадка,
+расположенная в сердце Москва‑Сити.
+</p>
+
+<p>
+Гостей ждут панорамные виды на столицу,
+бесплатное мороженое, фотосессии,
+экскурсии с гидом и развлекательная программа.
+</p>
+
+<section className="contactsSection">
+
+<section id="contacts" className="contacts fadeUp">
+
+<h2>Контакты</h2>
+
+<p>Москва‑Сити</p>
+<p>Пресненская набережная</p>
+
+<p>Ежедневно с 10:00 до 22:00</p>
+
+<p>info@visota90.ru</p>
+
+<div className="contactButtons">
+
+<a
+href="https://yandex.ru/maps/?ll=37.537434,55.749633&z=17&pt=37.537434,55.749633,pm2rdm"
+target="_blank"
+className="mapButton"
+>
+Открыть в Яндекс.Картах
+</a>
+
+<a
+href="https://3.redirect.appmetrica.yandex.com/route?end-lat=55.749633&end-lon=37.537434"
+target="_blank"
+className="taxiButton"
+>
+Вызвать Яндекс Такси
+</a>
+
+</div>
+
+<div className="map">
+
+<iframe
+src="https://yandex.com/map-widget/v1/?ll=37.537434%2C55.749633&z=16.89&pt=37.537434,55.749633,pm2rdm"
+width="100%"
+height="400"
+style={{border:0}}
+loading="lazy"
+/>
+
+</div>
+
+</section>
+
+</section>
+
+</section>
+
+<footer className="footer">
+
+<div className="footerContent">
+
+<div className="footerLogo">
+
+<Image
+src="/foto/logo_black.png"
+alt="Высота 90"
+width={180}
+height={70}
+style={{objectFit:"contain"}}
+/>
+
+<div className="footerTitle">
+Высота 90
+</div>
+
+</div>
+
+<div className="footerLinks">
+<a href="#hero">Главная</a>
+<a href="#tickets">Билеты</a>
+<a href="#about">О площадке</a>
+<a href="#contacts">Контакты</a>
+</div>
+
+<div className="footerInfo">
+<p>Москва‑Сити</p>
+<p>10:00 – 22:00</p>
+<p>info@visota90.ru</p>
+</div>
+
+</div>
+
+<div className="footerBottom">
+© {new Date().getFullYear()} Высота 90
+</div>
+
+</footer>
+
+<button
+className="scrollTop"
+onClick={()=>window.scrollTo({top:0,behavior:"smooth"})}
+>
+↑
+</button>
+
+<a
+href="https://t.me/bezslova"
+target="_blank"
+className="telegramButton"
+>
+<img src="/foto/telegaa.svg" alt="Telegram" />
+</a>
+
+{selected !== null && (
+<div className="lightbox" onClick={()=>setSelected(null)}>
+
+<button
+className="lightboxArrow left"
+onClick={(e)=>{
+e.stopPropagation()
+setSelected((selected - 1 + images.length) % images.length)
+}}
+>
+‹
+</button>
+
+<Image
+src={images[selected]}
+alt="Москва-Сити"
+width={1400}
+height={900}
+className="lightboxImage"
+/>
+
+<button
+className="lightboxArrow right"
+onClick={(e)=>{
+e.stopPropagation()
+setSelected((selected + 1) % images.length)
+}}
+>
+›
+</button>
+
+</div>
+)}
+
+</main>
+
+)
+
+}
