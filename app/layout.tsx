@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
-import { Montserrat, Manrope } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const montserrat = Montserrat({
+const inter = Inter({
   subsets: ["latin","cyrillic"],
-  weight: ["600","700","800"],
-  variable: "--font-heading"
-});
-
-const manrope = Manrope({
-  subsets: ["latin","cyrillic"],
-  weight: ["400","500","600"],
-  variable: "--font-body"
+  weight: ["400","500","600","700","800"],
+  variable: "--font-apple"
 });
 
 export const metadata: Metadata = {
@@ -26,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru">
-      <body className={`${montserrat.variable} ${manrope.variable}`}>
+      <body className={inter.variable}>
         {children}
       </body>
     </html>

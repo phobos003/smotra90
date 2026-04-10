@@ -147,10 +147,10 @@ return(
 
 <div className="logo">
 <Image
-src="/foto/logo.jpeg"
+src="/foto/logo_n.png"
 alt="Высота 90"
-width={160}
-height={60}
+width={220}
+height={75}
 priority
 style={{objectFit:"contain"}}
 />
