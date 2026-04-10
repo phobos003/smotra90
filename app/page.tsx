@@ -130,14 +130,14 @@ return(
 <span>Бесплатное мороженое</span>
 <span>Фотосессии</span>
 <span>Экскурсия с гидом</span>
-<span>360° обзор столицы</span>
+<span>270° обзор столицы</span>
 
 <span>Панорамный вид на Москву</span>
 <span>90 этаж Москва‑Сити</span>
 <span>Бесплатное мороженое</span>
 <span>Фотосессии</span>
 <span>Экскурсия с гидом</span>
-<span>360° обзор столицы</span>
+<span>270° обзор столицы</span>
 
 </div>
 
@@ -208,40 +208,6 @@ onClick={()=>setMenuOpen(!menuOpen)}
 Купить билет
 </a>
 
-</div>
-
-</section>
-
-<section className="features fadeUp">
-
-<div className="feature">
-<h3>🍦</h3>
-<p>Бесплатное мороженое для гостей</p>
-</div>
-
-<div className="feature">
-<h3>📸</h3>
-<p>Фотосессия на панорамной площадке</p>
-</div>
-
-<div className="feature">
-<h3>🎤</h3>
-<p>Экскурсия с профессиональным гидом</p>
-</div>
-
-<div className="feature">
-<h3>🎉</h3>
-<p>Развлекательная программа</p>
-</div>
-
-<div className="feature">
-<h3>90 этаж</h3>
-<p>Панорамный вид на Москву с высоты</p>
-</div>
-
-<div className="feature">
-<h3>360°</h3>
-<p>Полный обзор города и небоскрёбов</p>
 </div>
 
 </section>
