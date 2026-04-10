@@ -1,5 +1,6 @@
 html{
 scroll-behavior:auto;
+overflow-x:hidden;
 }
 
 body{
@@ -565,6 +566,11 @@ overflow:hidden;
 box-shadow:0 10px 30px rgba(0,0,0,0.08);
 }
 
+.map iframe{
+display:block;
+width:100%;
+}
+
 /* LIGHTBOX */
 
 .lightbox{
@@ -639,7 +645,12 @@ right:40px;
 
 /* Nav */
 .nav{
-padding:14px 18px;
+padding:8px 14px;
+}
+
+.logo img{
+max-height:36px;
+width:auto;
 }
 
 .menu{
@@ -757,6 +768,8 @@ gap:14px;
 .ticketCard{
 width:100%;
 max-width:100%;
+box-sizing:border-box;
+padding:28px 20px;
 }
 
 .ticketCard.featured{
@@ -764,7 +777,7 @@ transform:none;
 }
 
 .ticketCard.featured:hover{
-transform:translateY(-8px);
+transform:translateY(-6px);
 }
 
 /* Included */
@@ -783,13 +796,21 @@ padding:24px 20px;
 
 /* About & Contacts */
 .about{
-padding:50px 20px;
-margin:30px 16px;
+padding:40px 18px;
+margin:30px 8px;
+max-width:100%;
+border-radius:16px;
 }
 
 .contacts{
-padding:50px 20px;
-margin:30px 16px;
+padding:40px 18px;
+margin:30px 8px;
+max-width:100%;
+border-radius:16px;
+}
+
+.contactsSection{
+padding:40px 8px;
 }
 
 /* Contact buttons */
@@ -1334,6 +1355,10 @@ position:sticky;
 top:30px;
 } 
 
+.premium{
+overflow:hidden;
+}
+
 .premiumRow{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -1341,6 +1366,8 @@ align-items:center;
 gap:80px;
 max-width:1200px;
 margin:120px auto;
+padding:0 20px;
+overflow:hidden;
 }
 
 .premiumImage{
