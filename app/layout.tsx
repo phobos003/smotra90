@@ -11,6 +11,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Высота 90 — Смотровая площадка Москва-Сити",
   description: "Панорамная смотровая площадка на 90 этаже Москва-Сити.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
