@@ -427,7 +427,7 @@ style={{objectFit:"cover"}}
 <p>Москва‑Сити</p>
 <p>Пресненская набережная</p>
 
-<p>Ежедневно с 10:00 до 22:00</p>
+<p>Ежедневно с 11:00 до 23:00</p>
 
 <p>info@visota90.ru</p>
 
@@ -498,7 +498,7 @@ style={{objectFit:"contain"}}
 
 <div className="footerInfo">
 <p>Москва‑Сити</p>
-<p>10:00 – 22:00</p>
+<p>11:00 – 23:00</p>
 <p>info@visota90.ru</p>
 </div>
 
