@@ -17,6 +17,16 @@ const images = [
 const [selected,setSelected] = useState<number | null>(null)
 const [menuOpen,setMenuOpen] = useState(false)
 const [darkMode,setDarkMode] = useState(false)
+const [openFaq,setOpenFaq] = useState<number | null>(null)
+
+const faqData = [
+{q:"Можно ли прийти с детьми?", a:"Да, мы рады гостям любого возраста. Дети до 5 лет проходят бесплатно. Для безопасности детей на площадке установлены ограждения."},
+{q:"Что делать если плохая погода?", a:"Смотровая площадка работает в любую погоду. Площадка застеклена, поэтому дождь и ветер не помешают вашему визиту. В туманные дни открывается особенная атмосфера над облаками."},
+{q:"Есть ли парковка?", a:"Да, в Москва‑Сити есть подземная парковка. Стоимость — от 200 ₽/час. Также удобно добраться на метро — станции «Выставочная» и «Деловой центр»."},
+{q:"Сколько длится посещение?", a:"Время посещения не ограничено. В среднем гости проводят на площадке 1–2 часа. Экскурсия с гидом длится около 30 минут."},
+{q:"Нужно ли бронировать заранее?", a:"Рекомендуем бронировать билеты онлайн, особенно на вечерние сеансы и выходные. Так вы гарантируете себе место и избежите очереди."},
+{q:"Можно ли проводить мероприятия?", a:"Да, мы организуем дни рождения, корпоративы и романтические вечера на высоте 90 этажа. Свяжитесь с нами для обсуждения деталей."},
+]
 
 const galleryRef = useRef<HTMLDivElement>(null)
 
@@ -417,6 +427,26 @@ style={{objectFit:"cover"}}
 бесплатное мороженое, фотосессии,
 экскурсии с гидом и развлекательная программа.
 </p>
+
+<section className="faq fadeUp">
+
+<h2>Частые вопросы</h2>
+
+<div className="faqList">
+{faqData.map((item,i)=>(
+<div className={`faqItem ${openFaq === i ? "open" : ""}`} key={i}>
+<button className="faqQuestion" onClick={()=>setOpenFaq(openFaq === i ? null : i)}>
+<span>{item.q}</span>
+<span className="faqIcon">{openFaq === i ? "−" : "+"}</span>
+</button>
+<div className="faqAnswer">
+<p>{item.a}</p>
+</div>
+</div>
+))}
+</div>
+
+</section>
 
 <section className="contactsSection">
 

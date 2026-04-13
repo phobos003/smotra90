@@ -1193,6 +1193,143 @@ text-align:center;
 }
 }
 
+/* FAQ */
+
+.faq{
+padding:100px 40px;
+background:#FAFCFF;
+text-align:center;
+}
+
+.faq h2{
+font-size:40px;
+margin-bottom:50px;
+color:#4FB6E8;
+}
+
+.faqList{
+max-width:800px;
+margin:0 auto;
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.faqItem{
+background:white;
+border:1px solid rgba(79,182,232,0.12);
+border-radius:14px;
+overflow:hidden;
+transition:all 0.3s ease;
+}
+
+.faqItem:hover{
+border-color:rgba(79,182,232,0.35);
+box-shadow:0 8px 30px rgba(0,0,0,0.06);
+}
+
+.faqItem.open{
+border-color:rgba(79,182,232,0.4);
+box-shadow:0 10px 35px rgba(79,182,232,0.1);
+}
+
+.faqQuestion{
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 24px;
+border:none;
+background:none;
+cursor:pointer;
+font-size:17px;
+font-weight:600;
+color:#1F2937;
+text-align:left;
+font-family:inherit;
+gap:16px;
+}
+
+.faqIcon{
+font-size:22px;
+color:#4FB6E8;
+flex-shrink:0;
+transition:transform 0.3s;
+}
+
+.faqItem.open .faqIcon{
+transform:rotate(180deg);
+}
+
+.faqAnswer{
+max-height:0;
+overflow:hidden;
+transition:max-height 0.35s ease, padding 0.35s ease;
+padding:0 24px;
+}
+
+.faqItem.open .faqAnswer{
+max-height:300px;
+padding:0 24px 20px;
+}
+
+.faqAnswer p{
+color:#555;
+font-size:16px;
+line-height:1.7;
+margin:0;
+}
+
+body.dark .faq{
+background:#0F1117;
+}
+
+body.dark .faqItem{
+background:#1E2535;
+border-color:rgba(255,255,255,0.06);
+}
+
+body.dark .faqItem:hover{
+border-color:rgba(79,182,232,0.3);
+}
+
+body.dark .faqItem.open{
+border-color:rgba(79,182,232,0.35);
+box-shadow:0 10px 35px rgba(0,0,0,0.3);
+}
+
+body.dark .faqQuestion{
+color:#E5E7EB;
+}
+
+body.dark .faqAnswer p{
+color:#9CA3AF;
+}
+
+@media (max-width:768px){
+.faq{
+padding:60px 16px;
+}
+
+.faq h2{
+font-size:26px;
+margin-bottom:30px;
+}
+
+.faqQuestion{
+font-size:15px;
+padding:16px 18px;
+}
+
+.faqAnswer p{
+font-size:14px;
+}
+
+.faqItem.open .faqAnswer{
+padding:0 18px 16px;
+}
+}
+
 .section{
 max-width:1200px;
 margin:80px auto;
