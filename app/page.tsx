@@ -125,7 +125,12 @@ document.body.classList.toggle('dark', next)
 localStorage.setItem('theme', next ? 'dark' : 'light')
 }
 
-const closeMenu = ()=> setMenuOpen(false)
+const scrollTo = (id:string) => {
+setMenuOpen(false)
+const el = document.getElementById(id)
+if(el) el.scrollIntoView({behavior:"smooth",block:"start"})
+}
+
 
 return(
 
@@ -167,17 +172,17 @@ style={{objectFit:"contain"}}
 </div>
 
 <div className={`menu ${menuOpen ? "open" : ""}`}>
-<a href="#hero" onClick={closeMenu}>Главная</a>
-<a href="#tickets" onClick={closeMenu}>Билеты</a>
-<a href="#about" onClick={closeMenu}>О площадке</a>
-<a href="#contacts" onClick={closeMenu}>Контакты</a>
+<a onClick={()=>scrollTo("hero")}>Главная</a>
+<a onClick={()=>scrollTo("tickets")}>Билеты</a>
+<a onClick={()=>scrollTo("about")}>О площадке</a>
+<a onClick={()=>scrollTo("contacts")}>Контакты</a>
 </div>
 
 <div className="navRight">
 
 <button className="themeToggle" onClick={toggleDark} aria-label="Переключить тему" />
 
-<a href="#tickets" className="heroButton">
+<a onClick={()=>scrollTo("tickets")} className="heroButton">
 Купить билет
 </a>
 
@@ -202,19 +207,19 @@ onClick={()=>setMenuOpen(!menuOpen)}
 
 <div className="heroContent">
 
-<h1>Высота 90</h1>
+<h1 className="heroAnim heroAnim1">Высота 90</h1>
 
-<p>
+<p className="heroAnim heroAnim2">
 Панорамная смотровая площадка в Москва‑Сити.
 Откройте захватывающий вид на столицу с высоты 90 этажа.
 </p>
 
-<p>
+<p className="heroAnim heroAnim3">
 Москва как на ладони: небоскрёбы делового центра,
 изгиб Москвы‑реки и самые красивые закаты города.
 </p>
 
-<a href="#tickets" className="buyButton">
+<a onClick={()=>scrollTo("tickets")} className="buyButton heroAnim heroAnim4">
 Купить билет
 </a>
 
