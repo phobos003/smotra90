@@ -29,6 +29,8 @@ const faqData = [
 ]
 
 const galleryRef = useRef<HTMLDivElement>(null)
+const countersRef = useRef<HTMLDivElement>(null)
+const countersStarted = useRef(false)
 
 useEffect(() => {
 
@@ -116,6 +118,40 @@ el.scrollBy({ left:320, behavior:"smooth" })
 
 return ()=>clearInterval(interval)
 
+},[])
+
+useEffect(()=>{
+const el = countersRef.current
+if(!el) return
+
+const animateCounter = (span:HTMLElement, target:number, suffix:string) => {
+const duration = 1800
+const start = performance.now()
+const step = (now:number) => {
+const progress = Math.min((now - start) / duration, 1)
+const eased = 1 - Math.pow(1 - progress, 3)
+const current = Math.round(eased * target)
+span.textContent = current.toLocaleString("ru-RU") + suffix
+if(progress < 1) requestAnimationFrame(step)
+}
+requestAnimationFrame(step)
+}
+
+const observer = new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting && !countersStarted.current){
+countersStarted.current = true
+el.querySelectorAll<HTMLElement>("[data-target]").forEach(span=>{
+const target = parseInt(span.dataset.target || "0")
+const suffix = span.dataset.suffix || ""
+animateCounter(span, target, suffix)
+})
+}
+})
+},{threshold:0.3})
+
+observer.observe(el)
+return ()=>observer.disconnect()
 },[])
 
 useEffect(() => {
@@ -350,6 +386,25 @@ height:"100%"
 
 </div>
 
+</section>
+
+<section className="counters" ref={countersRef}>
+<div className="counterItem">
+<span className="counterValue" data-target="10000" data-suffix="+">0</span>
+<span className="counterLabel">Гостей посетили</span>
+</div>
+<div className="counterItem">
+<span className="counterValue" data-target="90" data-suffix=" этаж">0</span>
+<span className="counterLabel">Высота площадки</span>
+</div>
+<div className="counterItem">
+<span className="counterValue" data-target="270" data-suffix="°">0</span>
+<span className="counterLabel">Обзор столицы</span>
+</div>
+<div className="counterItem">
+<span className="counterValue" data-target="365" data-suffix=" дней">0</span>
+<span className="counterLabel">Работаем в году</span>
+</div>
 </section>
 
 <section className="panorama fadeUp">
