@@ -67,6 +67,14 @@ scrollBtn.classList.remove("show")
 }
 }
 
+const progressBar = document.querySelector(".scrollProgress") as HTMLElement
+if(progressBar){
+const scrolled = window.scrollY
+const total = document.documentElement.scrollHeight - window.innerHeight
+const pct = total > 0 ? (scrolled / total) * 100 : 0
+progressBar.style.width = pct + "%"
+}
+
 }
 
 window.addEventListener("scroll",handleScroll)
@@ -135,6 +143,8 @@ if(el) el.scrollIntoView({behavior:"smooth",block:"start"})
 return(
 
 <main>
+
+<div className="scrollProgress" />
 
 <section className="ticker">
 
