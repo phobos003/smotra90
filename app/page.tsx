@@ -222,6 +222,7 @@ style={{objectFit:"contain"}}
 <a onClick={()=>scrollTo("tickets")}>Билеты</a>
 <a onClick={()=>scrollTo("about")}>О площадке</a>
 <a onClick={()=>scrollTo("contacts")}>Контакты</a>
+<a href="/rules">Правила</a>
 </div>
 
 <div className="navRight">
@@ -594,6 +595,7 @@ style={{objectFit:"contain"}}
 <a href="#tickets">Билеты</a>
 <a href="#about">О площадке</a>
 <a href="#contacts">Контакты</a>
+<a href="/rules">Правила посещения</a>
 </div>
 
 <div className="footerInfo">
