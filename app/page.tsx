@@ -6,7 +6,7 @@ import Image from "next/image"
 export default function Home(){
 
 const images = [
-"/foto/1.jpeg",
+"/foto/icecream.jpg",
 "/foto/2.jpeg",
 "/foto/3.jpeg",
 "/foto/4.jpeg",
@@ -274,48 +274,19 @@ onClick={()=>setMenuOpen(!menuOpen)}
 
 </section>
 
-<section className="included fadeUp">
-
-<h2>Что входит в билет</h2>
-
-<div className="includedGrid">
-
-<div className="includedItem">
-<h3>🍦 Бесплатное мороженое</h3>
-<p>Каждый гость получает мороженое во время посещения.</p>
-</div>
-
-<div className="includedItem">
-<h3>📸 Фотосессия</h3>
-<p>Сделайте яркие фотографии с видом на Москву‑Сити.</p>
-</div>
-
-<div className="includedItem">
-<h3>🎤 Экскурсия</h3>
-<p>Профессиональный гид расскажет о небоскрёбах и истории района.</p>
-</div>
-
-<div className="includedItem">
-<h3>🎉 Развлекательная программа</h3>
-<p>Музыка, атмосфера праздника и незабываемые эмоции.</p>
-</div>
-
-</div>
-
-</section>
-
 <section className="premium">
 
 <div className="premiumRow">
 
 <div className="premiumImage">
 <Image
-src="/foto/icecream.jpeg"
+src="/foto/icecream.jpg"
 alt="Мороженое"
 width={500}
-height={300}
+height={750}
 style={{
 objectFit:"cover",
+objectPosition:"center 60%",
 width:"100%",
 height:"100%"
 }}
@@ -337,7 +308,7 @@ height:"100%"
 
 <div className="premiumImage">
 <Image
-src="/foto/photo.jpeg"
+src="/foto/fhotograf.jpeg"
 alt="Фотосессия"
 width={500}
 height={300}
@@ -350,11 +321,13 @@ height:"100%"
 </div>
 
 <div className="premiumContent">
-<h2>Фотосессия</h2>
+<h2>Фотосъёмка с видом на Москву</h2>
 <div className="line"></div>
 <p>
-Идеальные фото с панорамным видом на Москву. Проффесиональный фотограф сделает снимки и распечатает.
+Профессиональный фотограф создаст для вас общий снимок на фоне города.
+Фотография формата 9×9 распечатывается и передаётся на компанию (от 2 человек).
 </p>
+<p>Финальный кадр отбирается фотографом.</p>
 <div className="circle">2</div>
 </div>
 
