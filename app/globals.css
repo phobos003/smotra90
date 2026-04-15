@@ -832,9 +832,6 @@ font-weight:600;
 color:white;
 }
 
-.heroBadgeIcon{
-font-size:16px;
-}
 
 .heroCard{
 display:flex;
@@ -842,10 +839,10 @@ position:relative;
 z-index:2;
 background:rgba(255,255,255,0.15);
 backdrop-filter:blur(16px);
-border-radius:18px;
-padding:16px;
-margin:0 16px 24px;
-gap:14px;
+border-radius:20px;
+padding:20px;
+margin:0 16px 28px;
+gap:16px;
 align-items:center;
 }
 
@@ -853,27 +850,31 @@ align-items:center;
 flex:1;
 }
 
+.heroCardLabel{
+font-size:11px;
+font-weight:600;
+color:rgba(255,255,255,0.6);
+text-transform:uppercase;
+letter-spacing:0.8px;
+}
+
 .heroCardText h3{
-font-size:16px;
+font-size:18px;
 font-weight:700;
 color:white;
-margin:4px 0 6px;
+margin:6px 0 8px;
 }
 
 .heroCardText p{
-font-size:13px;
+font-size:14px;
 color:rgba(255,255,255,0.8);
 margin:0;
-line-height:1.5;
-}
-
-.heroCardIcon{
-font-size:20px;
+line-height:1.6;
 }
 
 .heroCardImage{
-width:100px;
-height:70px;
+width:120px;
+height:85px;
 border-radius:12px;
 overflow:hidden;
 flex-shrink:0;

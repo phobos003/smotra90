@@ -271,7 +271,6 @@ onClick={()=>setMenuOpen(!menuOpen)}
 Купить билет
 </a>
 <div className="heroBadge">
-<span className="heroBadgeIcon">🌇</span>
 <span>Лучшие закаты в&nbsp;сердце Москвы</span>
 </div>
 </div>
@@ -280,7 +279,7 @@ onClick={()=>setMenuOpen(!menuOpen)}
 
 <div className="heroCard heroAnim heroAnim4">
 <div className="heroCardText">
-<span className="heroCardIcon">🏙</span>
+<span className="heroCardLabel">333 метра над землёй</span>
 <h3>Москва как на ладони</h3>
 <p>Небоскрёбы делового центра, изгиб Москвы‑реки и самые красивые закаты города.</p>
 </div>
