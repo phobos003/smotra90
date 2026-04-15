@@ -261,20 +261,45 @@ onClick={()=>setMenuOpen(!menuOpen)}
 Откройте захватывающий вид на столицу с высоты 90 этажа.
 </p>
 
-<p className="heroAnim heroAnim3">
+<p className="heroAnim heroAnim3 heroDesktop">
 Москва как на ладони: небоскрёбы делового центра,
 изгиб Москвы‑реки и самые красивые закаты города.
 </p>
 
-<a onClick={()=>scrollTo("tickets")} className="buyButton heroAnim heroAnim4">
+<div className="heroButtons heroAnim heroAnim4">
+<a onClick={()=>scrollTo("tickets")} className="buyButton">
 Купить билет
 </a>
+<div className="heroBadge">
+<span className="heroBadgeIcon">🌇</span>
+<span>Лучшие закаты в&nbsp;сердце Москвы</span>
+</div>
+</div>
 
+</div>
+
+<div className="heroCard heroAnim heroAnim4">
+<div className="heroCardText">
+<span className="heroCardIcon">🏙</span>
+<h3>Москва как на ладони</h3>
+<p>Небоскрёбы делового центра, изгиб Москвы‑реки и самые красивые закаты города.</p>
+</div>
+<div className="heroCardImage">
+<Image
+src="/foto/panorama.jpeg"
+alt="Панорама"
+width={120}
+height={80}
+style={{objectFit:"cover",width:"100%",height:"100%",borderRadius:"12px"}}
+/>
+</div>
 </div>
 
 </section>
 
 <section className="premium">
+
+<h2 className="premiumHeading fadeUp">Что входит в билет?</h2>
 
 <div className="premiumRow">
 

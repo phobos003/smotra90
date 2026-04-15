@@ -327,6 +327,27 @@ margin:18px 0;
 opacity:0.95;
 }
 
+/* HERO MOBILE CARDS */
+
+.heroButtons{
+display:flex;
+align-items:center;
+gap:16px;
+flex-wrap:wrap;
+}
+
+.heroBadge{
+display:none;
+}
+
+.heroCard{
+display:none;
+}
+
+.heroDesktop{
+display:block;
+}
+
 /* HERO ANIMATION */
 
 .heroAnim{
@@ -763,19 +784,109 @@ display:none;
 }
 
 /* Hero */
+.hero{
+align-items:flex-end;
+padding-bottom:0;
+}
+
 .heroContent{
-padding:24px 20px;
-margin:0 12px;
+padding:0 20px 16px;
+margin:0;
+background:none;
+backdrop-filter:none;
+border-radius:0;
+text-align:left;
+max-width:100%;
 }
 
 .heroContent h1{
-font-size:36px;
+font-size:38px;
 letter-spacing:-0.5px;
 }
 
 .heroContent p{
 font-size:15px;
-margin:12px 0;
+margin:10px 0;
+}
+
+.heroDesktop{
+display:none;
+}
+
+.heroButtons{
+flex-direction:row;
+align-items:center;
+gap:12px;
+}
+
+.heroBadge{
+display:flex;
+align-items:center;
+gap:6px;
+background:rgba(255,255,255,0.18);
+backdrop-filter:blur(12px);
+padding:10px 16px;
+border-radius:20px;
+font-size:13px;
+font-weight:600;
+color:white;
+}
+
+.heroBadgeIcon{
+font-size:16px;
+}
+
+.heroCard{
+display:flex;
+position:relative;
+z-index:2;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(16px);
+border-radius:18px;
+padding:16px;
+margin:0 16px 24px;
+gap:14px;
+align-items:center;
+}
+
+.heroCardText{
+flex:1;
+}
+
+.heroCardText h3{
+font-size:16px;
+font-weight:700;
+color:white;
+margin:4px 0 6px;
+}
+
+.heroCardText p{
+font-size:13px;
+color:rgba(255,255,255,0.8);
+margin:0;
+line-height:1.5;
+}
+
+.heroCardIcon{
+font-size:20px;
+}
+
+.heroCardImage{
+width:100px;
+height:70px;
+border-radius:12px;
+overflow:hidden;
+flex-shrink:0;
+}
+
+.heroContent .buyButton{
+padding:12px 22px;
+font-size:15px;
+border-radius:24px;
+width:auto;
+max-width:none;
+margin:0;
+display:inline-flex;
 }
 
 /* Features */
@@ -1811,6 +1922,20 @@ top:33px;
 
 .premium{
 overflow:hidden;
+}
+
+.premiumHeading{
+text-align:center;
+font-size:44px;
+color:#4FB6E8;
+margin:80px 0 0;
+}
+
+@media (max-width:768px){
+.premiumHeading{
+font-size:28px;
+margin:40px 16px 0;
+}
 }
 
 .premiumRow{
