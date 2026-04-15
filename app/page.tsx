@@ -254,11 +254,13 @@ onClick={()=>setMenuOpen(!menuOpen)}
 
 <div className="heroContent">
 
-<h1 className="heroAnim heroAnim1">Высота 90</h1>
+<p className="heroTag heroAnim heroAnim1">Смотровая площадка</p>
 
-<p className="heroAnim heroAnim2">
-Панорамная смотровая площадка в Москва‑Сити.
-Откройте захватывающий вид на столицу с высоты 90 этажа.
+<h1 className="heroAnim heroAnim2">Высота 90</h1>
+
+<p className="heroDesc heroAnim heroAnim3">
+Панорамная площадка на 90 этаже Москва‑Сити.
+Захватывающий вид на столицу с высоты 333 метра.
 </p>
 
 <p className="heroAnim heroAnim3 heroDesktop">
@@ -271,7 +273,7 @@ onClick={()=>setMenuOpen(!menuOpen)}
 Купить билет
 </a>
 <div className="heroBadge">
-<span>Лучшие закаты в&nbsp;сердце Москвы</span>
+<span>Лучшие закаты Москвы</span>
 </div>
 </div>
 
@@ -281,7 +283,7 @@ onClick={()=>setMenuOpen(!menuOpen)}
 <div className="heroCardText">
 <span className="heroCardLabel">333 метра над землёй</span>
 <h3>Москва как на ладони</h3>
-<p>Небоскрёбы делового центра, изгиб Москвы‑реки и самые красивые закаты города.</p>
+<p>Небоскрёбы, изгиб Москвы‑реки и самые красивые закаты города.</p>
 </div>
 <div className="heroCardImage">
 <Image
