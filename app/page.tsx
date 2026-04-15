@@ -199,6 +199,7 @@ return(
 <span>Фотосессии</span>
 <span>Экскурсия с гидом</span>
 <span>270° обзор столицы</span>
+<span>333 метра над землей</span>
 
 </div>
 
@@ -223,6 +224,7 @@ style={{objectFit:"contain"}}
 <a onClick={()=>scrollTo("about")}>О площадке</a>
 <a onClick={()=>scrollTo("contacts")}>Контакты</a>
 <a href="/rules">Правила</a>
+<a href="/location">Как добраться</a>
 </div>
 
 <div className="navRight">
@@ -591,6 +593,7 @@ style={{objectFit:"contain"}}
 <a href="#about">О площадке</a>
 <a href="#contacts">Контакты</a>
 <a href="/rules">Правила посещения</a>
+<a href="/location">Как добраться</a>
 </div>
 
 <div className="footerInfo">
