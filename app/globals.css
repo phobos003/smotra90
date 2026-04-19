@@ -512,7 +512,7 @@ font-size:13px;
 /* PANORAMA */
 
 .panorama{
-height:70vh;
+min-height:80vh;
 background-image:url("/foto/panorama.jpeg");
 background-size:cover;
 background-position:center;
@@ -522,6 +522,7 @@ justify-content:center;
 text-align:center;
 color:white;
 position:relative;
+overflow:hidden;
 }
 
 .panorama::before{
@@ -531,18 +532,148 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.35);
+background:linear-gradient(180deg,rgba(5,8,20,0.7) 0%,rgba(5,8,20,0.5) 40%,rgba(5,8,20,0.75) 100%);
+z-index:1;
+}
+
+.panoramaGrid{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-image:
+linear-gradient(rgba(79,182,232,0.06) 1px,transparent 1px),
+linear-gradient(90deg,rgba(79,182,232,0.06) 1px,transparent 1px);
+background-size:60px 60px;
+z-index:2;
+animation:panoramaGridDrift 20s linear infinite;
+}
+
+@keyframes panoramaGridDrift{
+0%{background-position:0 0}
+100%{background-position:60px 60px}
+}
+
+.panoramaOrb{
+position:absolute;
+border-radius:50%;
+filter:blur(80px);
+z-index:2;
+opacity:0.4;
+animation:panoramaOrbFloat 8s ease-in-out infinite alternate;
+}
+
+.panoramaOrb1{
+width:300px;
+height:300px;
+background:radial-gradient(circle,rgba(79,182,232,0.5),transparent 70%);
+top:10%;
+left:-5%;
+}
+
+.panoramaOrb2{
+width:250px;
+height:250px;
+background:radial-gradient(circle,rgba(0,212,255,0.4),transparent 70%);
+bottom:5%;
+right:-5%;
+animation-delay:4s;
+animation-direction:alternate-reverse;
+}
+
+@keyframes panoramaOrbFloat{
+0%{transform:translate(0,0) scale(1)}
+100%{transform:translate(30px,-20px) scale(1.15)}
 }
 
 .panoramaContent{
 position:relative;
+z-index:3;
 max-width:700px;
-padding:20px;
+padding:40px 20px;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+.panoramaLabel{
+display:inline-block;
+font-size:12px;
+font-weight:700;
+letter-spacing:4px;
+text-transform:uppercase;
+color:#4FB6E8;
+border:1px solid rgba(79,182,232,0.3);
+padding:6px 20px;
+border-radius:40px;
+margin-bottom:24px;
+background:rgba(79,182,232,0.08);
+backdrop-filter:blur(8px);
 }
 
 .panoramaContent h2{
-font-size:48px;
-margin-bottom:20px;
+font-size:56px;
+margin-bottom:16px;
+font-weight:800;
+letter-spacing:-1px;
+line-height:1.1;
+background:linear-gradient(135deg,#ffffff 0%,#4FB6E8 50%,#00D4FF 100%);
+background-size:200% 200%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+background-clip:text;
+animation:panoramaTextShimmer 6s ease-in-out infinite;
+}
+
+@keyframes panoramaTextShimmer{
+0%,100%{background-position:0% 50%}
+50%{background-position:100% 50%}
+}
+
+.panoramaContent p{
+font-size:18px;
+line-height:1.7;
+color:rgba(255,255,255,0.75);
+max-width:500px;
+margin:0;
+}
+
+.panoramaLine{
+width:60px;
+height:2px;
+background:linear-gradient(90deg,transparent,#4FB6E8,transparent);
+margin:32px 0;
+border-radius:2px;
+}
+
+.panoramaStats{
+display:flex;
+gap:48px;
+margin-top:8px;
+}
+
+.panoramaStat{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:4px;
+}
+
+.panoramaStat span{
+font-size:32px;
+font-weight:800;
+color:white;
+letter-spacing:-0.5px;
+text-shadow:0 0 20px rgba(79,182,232,0.4);
+}
+
+.panoramaStat small{
+font-size:12px;
+font-weight:600;
+letter-spacing:2px;
+text-transform:uppercase;
+color:rgba(79,182,232,0.8);
 }
 
 /* GALLERY */
@@ -1021,15 +1152,38 @@ max-width:100%;
 
 /* Panorama */
 .panorama{
-height:45vh;
+min-height:60vh;
 }
 
 .panoramaContent h2{
-font-size:26px;
+font-size:32px;
 }
 
 .panoramaContent p{
 font-size:15px;
+}
+
+.panoramaStats{
+gap:28px;
+}
+
+.panoramaStat span{
+font-size:24px;
+}
+
+.panoramaStat small{
+font-size:10px;
+letter-spacing:1.5px;
+}
+
+.panoramaOrb1{
+width:180px;
+height:180px;
+}
+
+.panoramaOrb2{
+width:150px;
+height:150px;
 }
 
 /* Gallery */

@@ -413,7 +413,14 @@ height:"100%"
 
 <section className="panorama fadeUp">
 
+<div className="panoramaGrid" />
+
+<div className="panoramaOrb panoramaOrb1" />
+<div className="panoramaOrb panoramaOrb2" />
+
 <div className="panoramaContent">
+
+<span className="panoramaLabel">90 этаж</span>
 
 <h2>Москва с высоты</h2>
 
@@ -422,6 +429,19 @@ height:"100%"
 Небоскрёбы Москва‑Сити, изгиб Москвы‑реки
 и бескрайний городской горизонт.
 </p>
+
+<div className="panoramaLine" />
+
+<div className="panoramaStats">
+<div className="panoramaStat">
+<span>333</span>
+<small>метра</small>
+</div>
+<div className="panoramaStat">
+<span>270°</span>
+<small>обзор</small>
+</div>
+</div>
 
 </div>
 
