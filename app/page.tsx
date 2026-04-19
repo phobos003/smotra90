@@ -169,6 +169,11 @@ document.body.classList.toggle('dark', next)
 localStorage.setItem('theme', next ? 'dark' : 'light')
 }
 
+useEffect(()=>{
+document.body.style.overflow = menuOpen ? "hidden" : ""
+return ()=>{ document.body.style.overflow = "" }
+},[menuOpen])
+
 const scrollTo = (id:string) => {
 setMenuOpen(false)
 const el = document.getElementById(id)
@@ -225,6 +230,7 @@ style={{objectFit:"contain"}}
 <a onClick={()=>scrollTo("contacts")}>Контакты</a>
 <a href="/rules">Правила</a>
 <a href="/location">Как добраться</a>
+<a className="menuCta" onClick={()=>scrollTo("tickets")}>Купить билет</a>
 </div>
 
 <div className="navRight">
@@ -236,7 +242,7 @@ style={{objectFit:"contain"}}
 </a>
 
 <div
-className="burger"
+className={`burger ${menuOpen ? "active" : ""}`}
 onClick={()=>setMenuOpen(!menuOpen)}
 >
 <span></span>
@@ -462,15 +468,15 @@ style={{objectFit:"cover"}}
 <button>Купить</button>
 </div>
 
-<div className="ticketCard featured">
-<span className="badge">Популярный</span>
+<div className="ticketCard">
 <h3>Детский</h3>
 <p>Посещение площадки в для детей от 8 до 14 лет.</p>
 <span className="price">1000 ₽</span>
 <button>Купить</button>
 </div>
 
-<div className="ticketCard vip">
+<div className="ticketCard vip featured">
+<span className="badge">Популярный</span>
 <h3>Семейный</h3>
 <p>Два взрослых и один детский.</p>
 <span className="price">4000 ₽</span>
