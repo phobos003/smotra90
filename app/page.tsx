@@ -2,6 +2,9 @@
 
 import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
+import BuyTicketModal from "./components/BuyTicketModal"
+
+type TicketType = "ADULT" | "CHILD" | "FAMILY"
 
 export default function Home(){
 
@@ -18,6 +21,7 @@ const [selected,setSelected] = useState<number | null>(null)
 const [menuOpen,setMenuOpen] = useState(false)
 const [darkMode,setDarkMode] = useState(false)
 const [openFaq,setOpenFaq] = useState<number | null>(null)
+const [buyModal,setBuyModal] = useState<{type:TicketType, label:string, price:string} | null>(null)
 
 const faqData = [
 {q:"Можно ли прийти с детьми?", a:"Да, мы рады гостям любого возраста. Дети до 7 лет включительно проходят бесплатно. Для безопасности детей на площадке установлены ограждения."},
@@ -485,14 +489,14 @@ style={{objectFit:"cover"}}
 <h3>Взрослый</h3>
 <p>Доступ на смотровую площадку и свободное время для прогулки.</p>
 <span className="price">1800 ₽</span>
-<button>Купить</button>
+<button onClick={()=>setBuyModal({type:"ADULT",label:"Взрослый",price:"1800 ₽"})}>Купить</button>
 </div>
 
 <div className="ticketCard">
 <h3>Детский</h3>
 <p>Посещение площадки в для детей от 8 до 14 лет.</p>
 <span className="price">1000 ₽</span>
-<button>Купить</button>
+<button onClick={()=>setBuyModal({type:"CHILD",label:"Детский",price:"1000 ₽"})}>Купить</button>
 </div>
 
 <div className="ticketCard vip featured">
@@ -500,7 +504,7 @@ style={{objectFit:"cover"}}
 <h3>Семейный</h3>
 <p>Два взрослых и один детский.</p>
 <span className="price">4000 ₽</span>
-<button>Купить</button>
+<button onClick={()=>setBuyModal({type:"FAMILY",label:"Семейный",price:"4000 ₽"})}>Купить</button>
 </div>
 
 </div>
@@ -650,6 +654,14 @@ className="telegramButton"
 >
 <img src="/foto/telegaa.svg" alt="Telegram" />
 </a>
+
+<BuyTicketModal
+open={buyModal !== null}
+onClose={()=>setBuyModal(null)}
+type={buyModal?.type || "ADULT"}
+typeLabel={buyModal?.label || ""}
+price={buyModal?.price || ""}
+/>
 
 {selected !== null && (
 <div className="lightbox" onClick={()=>setSelected(null)}>

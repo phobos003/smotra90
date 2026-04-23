@@ -1,0 +1,60 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum TicketType {
+  ADULT
+  CHILD
+  FAMILY
+}
+
+enum TicketStatus {
+  PENDING
+  PAID
+  USED
+  REFUNDED
+  CANCELLED
+}
+
+model TicketDate {
+  id         String   @id @default(cuid())
+  date       DateTime @db.Date @unique
+  isActive   Boolean  @default(true)
+  capacity   Int      @default(50)
+  soldCount  Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  tickets    Ticket[]
+
+  @@index([date])
+  @@index([isActive])
+}
+
+model Ticket {
+  id          String       @id @default(cuid())
+  type        TicketType
+  price       Int
+  email       String
+  name        String?
+  phone       String?
+  visitDate   DateTime     @db.Date
+  status      TicketStatus @default(PENDING)
+  paymentId   String?      @unique
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  paidAt      DateTime?
+  usedAt      DateTime?
+
+  ticketDate  TicketDate   @relation(fields: [visitDate], references: [date])
+
+  @@index([paymentId])
+  @@index([status])
+  @@index([visitDate])
+  @@index([email])
+}
