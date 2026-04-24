@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
 import BuyTicketModal from "./components/BuyTicketModal"
+import { TICKET_CATALOG, formatPrice } from "@/lib/tickets"
 
 type TicketType = "ADULT" | "CHILD" | "FAMILY"
 
@@ -486,25 +487,25 @@ style={{objectFit:"cover"}}
 <div className="ticketGrid">
 
 <div className="ticketCard">
-<h3>Взрослый</h3>
+<h3>{TICKET_CATALOG.ADULT.label}</h3>
 <p>Доступ на смотровую площадку и свободное время для прогулки.</p>
-<span className="price">1800 ₽</span>
-<button onClick={()=>setBuyModal({type:"ADULT",label:"Взрослый",price:"1800 ₽"})}>Купить</button>
+<span className="price">{formatPrice(TICKET_CATALOG.ADULT.price)}</span>
+<button onClick={()=>setBuyModal({type:"ADULT",label:TICKET_CATALOG.ADULT.label,price:formatPrice(TICKET_CATALOG.ADULT.price)})}>Купить</button>
 </div>
 
 <div className="ticketCard">
-<h3>Детский</h3>
+<h3>{TICKET_CATALOG.CHILD.label}</h3>
 <p>Посещение площадки в для детей от 8 до 14 лет.</p>
-<span className="price">1000 ₽</span>
-<button onClick={()=>setBuyModal({type:"CHILD",label:"Детский",price:"1000 ₽"})}>Купить</button>
+<span className="price">{formatPrice(TICKET_CATALOG.CHILD.price)}</span>
+<button onClick={()=>setBuyModal({type:"CHILD",label:TICKET_CATALOG.CHILD.label,price:formatPrice(TICKET_CATALOG.CHILD.price)})}>Купить</button>
 </div>
 
 <div className="ticketCard vip featured">
 <span className="badge">Популярный</span>
-<h3>Семейный</h3>
+<h3>{TICKET_CATALOG.FAMILY.label}</h3>
 <p>Два взрослых и один детский.</p>
-<span className="price">4000 ₽</span>
-<button onClick={()=>setBuyModal({type:"FAMILY",label:"Семейный",price:"4000 ₽"})}>Купить</button>
+<span className="price">{formatPrice(TICKET_CATALOG.FAMILY.price)}</span>
+<button onClick={()=>setBuyModal({type:"FAMILY",label:TICKET_CATALOG.FAMILY.label,price:formatPrice(TICKET_CATALOG.FAMILY.price)})}>Купить</button>
 </div>
 
 </div>
