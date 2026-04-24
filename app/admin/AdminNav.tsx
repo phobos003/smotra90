@@ -17,6 +17,7 @@ export default function AdminNav() {
     <nav className="adminNav">
       <Link href="/admin/scan" className={pathname === "/admin/scan" ? "active" : ""}>Сканер</Link>
       <Link href="/admin/dates" className={pathname === "/admin/dates" ? "active" : ""}>Даты</Link>
+      <Link href="/admin/prices" className={pathname === "/admin/prices" ? "active" : ""}>Цены</Link>
       <button className="adminLogout" onClick={logout}>Выйти</button>
     </nav>
   )

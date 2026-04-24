@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 import { prisma } from "@/lib/db"
-import { TICKET_CATALOG } from "@/lib/tickets"
+import { getCatalog } from "@/lib/tickets"
 
 export const dynamic = "force-dynamic"
 
@@ -8,6 +8,8 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
   const { id } = await params
   const ticket = await prisma.ticket.findUnique({ where: { id } })
   if (!ticket) return NextResponse.json({ error: "not_found" }, { status: 404 })
+
+  const catalog = await getCatalog()
 
   const today = new Date()
   today.setUTCHours(0, 0, 0, 0)
@@ -19,7 +21,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ id: str
     ticket: {
       id: ticket.id,
       type: ticket.type,
-      typeLabel: TICKET_CATALOG[ticket.type].label,
+      typeLabel: catalog[ticket.type].label,
       visitDate: ticket.visitDate.toISOString(),
       email: ticket.email,
       status: ticket.status,

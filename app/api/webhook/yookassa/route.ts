@@ -3,6 +3,7 @@ import QRCode from "qrcode"
 import { prisma } from "@/lib/db"
 import { sendMail } from "@/lib/mailer"
 import { buildTicketEmail } from "@/lib/emailTemplate"
+import { getCatalog } from "@/lib/tickets"
 
 export const dynamic = "force-dynamic"
 
@@ -60,9 +61,10 @@ export async function POST(req: Request) {
       color: { dark: "#0F1117", light: "#FFFFFF" },
     })
 
+    const catalog = await getCatalog()
     const { html, text } = buildTicketEmail({
       ticketId: ticket.id,
-      type: ticket.type,
+      typeLabel: catalog[ticket.type].label,
       price: ticket.price,
       visitDate: ticket.visitDate,
       siteUrl,

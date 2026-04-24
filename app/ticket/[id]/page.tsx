@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation"
 import QRCode from "qrcode"
 import { prisma } from "@/lib/db"
-import { formatPrice, formatVisitDate, TICKET_CATALOG } from "@/lib/tickets"
+import { formatPrice, formatVisitDate, getCatalog } from "@/lib/tickets"
 
 export const dynamic = "force-dynamic"
 
@@ -18,7 +18,8 @@ export default async function TicketPage({ params }: { params: Promise<{ id: str
     color: { dark: "#0F1117", light: "#FFFFFF" },
   })
 
-  const typeLabel = TICKET_CATALOG[ticket.type].label
+  const catalog = await getCatalog()
+  const typeLabel = catalog[ticket.type].label
 
   const statusLabel: Record<string, { text: string; color: string }> = {
     PENDING: { text: "Ожидает оплаты", color: "#F59E0B" },

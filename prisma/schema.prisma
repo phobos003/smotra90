@@ -21,6 +21,13 @@ enum TicketStatus {
   CANCELLED
 }
 
+model TicketPrice {
+  type      TicketType @id
+  label     String
+  price     Int
+  updatedAt DateTime   @updatedAt
+}
+
 model TicketDate {
   id         String   @id @default(cuid())
   date       DateTime @db.Date @unique

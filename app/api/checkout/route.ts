@@ -3,7 +3,7 @@ import { z } from "zod"
 import { randomUUID } from "crypto"
 import { prisma } from "@/lib/db"
 import { yookassa } from "@/lib/yookassa"
-import { TICKET_CATALOG } from "@/lib/tickets"
+import { getCatalog } from "@/lib/tickets"
 
 const schema = z.object({
   type: z.enum(["ADULT", "CHILD", "FAMILY"]),
@@ -37,8 +37,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "sold_out" }, { status: 400 })
   }
 
-  const catalog = TICKET_CATALOG[type]
-  const price = catalog.price
+  const catalog = await getCatalog()
+  const entry = catalog[type]
+  const price = entry.price
 
   const ticket = await prisma.ticket.create({
     data: {
@@ -63,13 +64,13 @@ export async function POST(req: Request) {
           type: "redirect",
           return_url: `${siteUrl}/ticket/${ticket.id}`,
         },
-        description: `${catalog.label} · ${date} · ${ticket.id}`,
+        description: `${entry.label} · ${date} · ${ticket.id}`,
         metadata: { ticketId: ticket.id },
         receipt: {
           customer: { email },
           items: [
             {
-              description: `Билет «${catalog.label}» на ${date}`,
+              description: `Билет «${entry.label}» на ${date}`,
               quantity: "1.00",
               amount: { value: (price / 100).toFixed(2), currency: "RUB" },
               vat_code: 1,

@@ -1,17 +1,15 @@
-import { formatPrice, formatVisitDate, TICKET_CATALOG } from "./tickets"
-import type { TicketType } from "@prisma/client"
+import { formatPrice, formatVisitDate } from "./tickets"
 
 export function buildTicketEmail(opts: {
   ticketId: string
-  type: TicketType
+  typeLabel: string
   price: number
   visitDate: Date
   siteUrl: string
   qrDataUrl: string
 }) {
-  const { ticketId, type, price, visitDate, siteUrl, qrDataUrl } = opts
+  const { ticketId, typeLabel, price, visitDate, siteUrl, qrDataUrl } = opts
   const ticketUrl = `${siteUrl}/ticket/${ticketId}`
-  const typeLabel = TICKET_CATALOG[type].label
 
   const html = `
 <!DOCTYPE html>
