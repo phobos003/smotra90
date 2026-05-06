@@ -138,9 +138,24 @@ export default function AdminScanPage() {
         {result.wrongDate && <p style={{ color: "#EF4444", fontWeight: 600 }}>⚠ Билет на другую дату!</p>}
         {t.status === "USED" && <p style={{ color: "#6B7280", fontWeight: 600 }}>Уже использован</p>}
         <div className="scanBtns">
-          <button className="useBtn" onClick={useTicket} disabled={busy || t.status !== "PAID" || result.wrongDate}>
-            {t.status === "PAID" && !result.wrongDate ? "Пропустить" : "Нельзя пропустить"}
-          </button>
+          {t.status === "PAID" && !result.wrongDate && (
+            <button className="useBtn" onClick={useTicket} disabled={busy}>Пропустить</button>
+          )}
+          {t.status === "PAID" && result.wrongDate && (
+            <button
+              className="useBtn"
+              style={{ background: "linear-gradient(135deg,#F59E0B,#EF4444)" }}
+              onClick={() => {
+                if (confirm("Пропустить, хотя билет на другой день?")) useTicket()
+              }}
+              disabled={busy}
+            >
+              Пропустить всё равно
+            </button>
+          )}
+          {t.status !== "PAID" && (
+            <button className="useBtn" disabled>Нельзя пропустить</button>
+          )}
           <button className="resetBtn" onClick={reset}>Сканировать ещё</button>
         </div>
       </div>
