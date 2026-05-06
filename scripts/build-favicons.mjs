@@ -6,6 +6,7 @@ const SRC = "public/foto/logo_n.png"
 const OUT_DIR = "public"
 
 const sizes = [
+  { name: "icon-120.png", size: 120, padding: 0.16 },
   { name: "icon-192.png", size: 192, padding: 0.18 },
   { name: "icon-512.png", size: 512, padding: 0.18 },
   { name: "apple-touch-icon.png", size: 180, padding: 0.16 },
