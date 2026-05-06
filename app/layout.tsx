@@ -11,10 +11,33 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://visota90.ru"),
   title: "Высота 90 — Смотровая площадка Москва-Сити",
-  description: "Панорамная смотровая площадка на 90 этаже Москва-Сити.",
+  description: "Панорамная смотровая площадка на 90 этаже Москва-Сити. Виды на столицу с высоты 333 метров.",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon.ico",
+  },
+  openGraph: {
+    title: "Высота 90 — Смотровая площадка Москва-Сити",
+    description: "Панорамная смотровая площадка на 90 этаже Москва-Сити.",
+    url: "https://visota90.ru",
+    siteName: "Высота 90",
+    locale: "ru_RU",
+    type: "website",
+    images: [
+      {
+        url: "/icon-512.png",
+        width: 512,
+        height: 512,
+        alt: "Высота 90",
+      },
+    ],
   },
 };
 

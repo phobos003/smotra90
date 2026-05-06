@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /ticket/
+
+Sitemap: https://visota90.ru/sitemap.xml
