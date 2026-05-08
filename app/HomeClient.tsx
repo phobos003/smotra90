@@ -559,7 +559,9 @@ style={{objectFit:"cover"}}
 
 <p>Ежедневно с 11:00 до 23:00</p>
 
-<p>info@visota90.ru</p>
+<p><a href="tel:+79264100010">+7 (926) 410‑00‑10</a></p>
+
+<p><a href="mailto:info@visota90.ru">info@visota90.ru</a></p>
 
 <div className="contactButtons">
 
@@ -631,7 +633,8 @@ style={{objectFit:"contain"}}
 <div className="footerInfo">
 <p>Москва‑Сити</p>
 <p>11:00 – 23:00</p>
-<p>info@visota90.ru</p>
+<p><a href="tel:+79264100010">+7 (926) 410‑00‑10</a></p>
+<p><a href="mailto:info@visota90.ru">info@visota90.ru</a></p>
 </div>
 
 </div>
