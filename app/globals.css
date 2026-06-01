@@ -3543,3 +3543,272 @@ color:#9CA3AF;
 .dateEmpty p{
 margin:6px 0;
 }
+
+/* ADMIN STATS */
+
+.kpiGrid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:12px;
+margin-bottom:20px;
+}
+
+.kpiCard{
+background:white;
+border:1.5px solid #E5E7EB;
+border-radius:14px;
+padding:18px 20px;
+}
+
+body.dark .kpiCard{
+background:#1E2535;
+border-color:rgba(255,255,255,0.08);
+}
+
+.kpiLabel{
+font-size:12px;
+font-weight:700;
+text-transform:uppercase;
+letter-spacing:1px;
+color:#6B7280;
+margin-bottom:8px;
+}
+
+body.dark .kpiLabel{color:#9CA3AF}
+
+.kpiCount{
+font-size:36px;
+font-weight:800;
+line-height:1;
+letter-spacing:-1px;
+margin-bottom:6px;
+}
+
+.kpiRevenue{
+font-size:15px;
+font-weight:600;
+color:#1F2937;
+}
+
+body.dark .kpiRevenue{color:#E5E7EB}
+
+.statSecondary{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:28px;
+}
+
+.statBadge{
+padding:8px 14px;
+background:white;
+border:1px solid #E5E7EB;
+border-radius:20px;
+font-size:13px;
+color:#6B7280;
+}
+
+body.dark .statBadge{
+background:#1E2535;
+border-color:rgba(255,255,255,0.08);
+color:#9CA3AF;
+}
+
+.statBadge strong{
+color:#1F2937;
+font-weight:700;
+}
+
+body.dark .statBadge strong{color:#E5E7EB}
+
+.statSection{
+background:white;
+border:1.5px solid #E5E7EB;
+border-radius:16px;
+padding:20px 22px;
+margin-bottom:20px;
+}
+
+body.dark .statSection{
+background:#1E2535;
+border-color:rgba(255,255,255,0.08);
+}
+
+.statSection h2{
+font-size:18px;
+font-weight:700;
+margin:0 0 16px;
+}
+
+.statSectionHeader{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:16px;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.statSectionHeader h2{
+margin:0;
+}
+
+.statSectionHeader select{
+padding:6px 10px;
+border:1.5px solid #E5E7EB;
+border-radius:8px;
+background:white;
+color:#1F2937;
+font-family:inherit;
+font-size:13px;
+cursor:pointer;
+}
+
+body.dark .statSectionHeader select{
+background:#161B27;
+border-color:rgba(255,255,255,0.1);
+color:#E5E7EB;
+}
+
+.chart{
+display:flex;
+align-items:flex-end;
+gap:3px;
+height:200px;
+padding:10px 0 24px;
+border-bottom:1px solid #E5E7EB;
+position:relative;
+}
+
+body.dark .chart{
+border-bottom-color:rgba(255,255,255,0.08);
+}
+
+.chartCol{
+flex:1;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:flex-end;
+height:100%;
+min-width:0;
+position:relative;
+cursor:default;
+}
+
+.chartBar{
+width:80%;
+max-width:30px;
+background:linear-gradient(180deg,#4FB6E8,#00D4FF);
+border-radius:5px 5px 0 0;
+position:relative;
+min-height:0;
+transition:filter 0.2s;
+display:flex;
+align-items:flex-start;
+justify-content:center;
+}
+
+.chartCol:hover .chartBar{
+filter:brightness(1.1);
+}
+
+.chartBarValue{
+position:absolute;
+top:-18px;
+font-size:10px;
+font-weight:700;
+color:#4FB6E8;
+white-space:nowrap;
+}
+
+.chartLabel{
+position:absolute;
+bottom:-20px;
+font-size:10px;
+color:#6B7280;
+white-space:nowrap;
+}
+
+body.dark .chartLabel{color:#9CA3AF}
+
+.statTypeGrid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:10px;
+}
+
+.statTypeCard{
+padding:14px 16px;
+background:#F3F9FE;
+border-radius:10px;
+}
+
+body.dark .statTypeCard{
+background:rgba(79,182,232,0.08);
+}
+
+.statTypeLabel{
+font-size:12px;
+font-weight:600;
+color:#6B7280;
+text-transform:uppercase;
+letter-spacing:0.5px;
+margin-bottom:6px;
+}
+
+body.dark .statTypeLabel{color:#9CA3AF}
+
+.statTypeCount{
+font-size:24px;
+font-weight:800;
+color:#4FB6E8;
+margin-bottom:2px;
+}
+
+.statTypeRevenue{
+font-size:13px;
+font-weight:600;
+color:#1F2937;
+}
+
+body.dark .statTypeRevenue{color:#E5E7EB}
+
+.upcomingList{
+display:flex;
+flex-direction:column;
+gap:6px;
+}
+
+.upcomingRow{
+display:grid;
+grid-template-columns:80px 1fr auto;
+gap:14px;
+align-items:center;
+padding:10px 12px;
+background:#F9FAFB;
+border-radius:10px;
+font-size:14px;
+}
+
+body.dark .upcomingRow{
+background:rgba(255,255,255,0.04);
+}
+
+.upcomingDate{
+font-weight:700;
+color:#4FB6E8;
+}
+
+.upcomingCount{
+color:#6B7280;
+}
+
+body.dark .upcomingCount{color:#9CA3AF}
+
+.upcomingRevenue{
+font-weight:700;
+color:#1F2937;
+}
+
+body.dark .upcomingRevenue{color:#E5E7EB}
