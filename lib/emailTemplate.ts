@@ -83,3 +83,75 @@ export function buildTicketEmail(opts: {
 
   return { html, text }
 }
+
+export function buildMultiTicketEmail(opts: {
+  tickets: { id: string; typeLabel: string; qrDataUrl: string }[]
+  visitDate: Date
+  totalPrice: number
+  siteUrl: string
+}) {
+  const { tickets, visitDate, totalPrice, siteUrl } = opts
+  const count = tickets.length
+
+  const ticketBlocks = tickets
+    .map(
+      (t, i) => `
+            <div style="margin:24px 0;padding:24px;background:#F3F9FE;border-radius:16px;text-align:center;">
+              <p style="margin:0 0 12px;font-size:14px;color:#4FB6E8;font-weight:700;letter-spacing:1px;">БИЛЕТ ${i + 1} ИЗ ${count} · ${t.typeLabel}</p>
+              <img src="${t.qrDataUrl}" alt="QR-код" width="220" height="220" style="display:inline-block;border:6px solid white;border-radius:14px;">
+              <p style="margin:12px 0 4px;font-family:monospace;font-size:11px;color:#6B7280;word-break:break-all;">${t.id}</p>
+              <a href="${siteUrl}/ticket/${t.id}" style="font-size:13px;color:#4FB6E8;text-decoration:none;">Открыть билет →</a>
+            </div>`,
+    )
+    .join("")
+
+  const html = `
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Ваши билеты — Высота 90</title>
+</head>
+<body style="margin:0;padding:0;background:#FAFCFF;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#1F2937;">
+<table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="background:#FAFCFF;padding:40px 20px;">
+  <tr>
+    <td align="center">
+      <table role="presentation" cellpadding="0" cellspacing="0" width="560" style="max-width:560px;background:white;border-radius:20px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.08);">
+        <tr>
+          <td style="background:linear-gradient(135deg,#4FB6E8,#00D4FF);padding:40px 32px;text-align:center;color:white;">
+            <h1 style="margin:0 0 8px;font-size:28px;font-weight:800;letter-spacing:-0.5px;">Ваши билеты готовы</h1>
+            <p style="margin:0;font-size:16px;opacity:0.95;">${count} ${count === 1 ? "билет" : count < 5 ? "билета" : "билетов"} · Высота 90</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:32px;">
+            <p style="margin:0 0 16px;font-size:16px;line-height:1.6;">Каждый QR‑код — отдельный вход. На входе сотрудник отсканирует каждый.</p>
+            <p style="margin:0 0 16px;font-size:15px;"><b>Дата визита:</b> ${formatVisitDate(visitDate)}</p>
+            <p style="margin:0 0 8px;font-size:15px;"><b>Сумма:</b> ${formatPrice(totalPrice)}</p>
+            ${ticketBlocks}
+            <p style="margin:24px 0 0;font-size:13px;color:#6B7280;text-align:center;line-height:1.6;">Вход строго в указанную дату. Каждый билет действителен один раз.<br>По вопросам — info@visota90.ru</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#F9FAFB;padding:20px 32px;text-align:center;font-size:12px;color:#9CA3AF;">
+            © Высота 90 · Москва‑Сити, Пресненская набережная
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>
+`.trim()
+
+  const text = [
+    `Ваши билеты — Высота 90 (${count} шт.)`,
+    `Дата визита: ${formatVisitDate(visitDate)}`,
+    `Сумма: ${formatPrice(totalPrice)}`,
+    "",
+    ...tickets.map((t, i) => `${i + 1}. ${t.typeLabel} — ${siteUrl}/ticket/${t.id}`),
+  ].join("\n")
+
+  return { html, text }
+}

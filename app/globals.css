@@ -3081,3 +3081,113 @@ body.dark .scanResult .resetBtn{
 background:#161B27;
 color:#E5E7EB;
 }
+
+/* ADMIN ISSUE FORM */
+
+.issueForm{
+display:flex;
+flex-direction:column;
+gap:16px;
+}
+
+.issueForm label{
+display:flex;
+flex-direction:column;
+gap:6px;
+}
+
+.issueForm label > span{
+font-size:13px;
+font-weight:600;
+color:#1F2937;
+}
+
+body.dark .issueForm label > span{
+color:#E5E7EB;
+}
+
+.issueForm label > span small{
+font-weight:400;
+color:#6B7280;
+font-size:11px;
+margin-left:6px;
+}
+
+.issueForm input,
+.issueForm select{
+padding:12px 14px;
+border:1.5px solid #E5E7EB;
+border-radius:10px;
+font-size:15px;
+font-family:inherit;
+background:white;
+color:#1F2937;
+}
+
+body.dark .issueForm input,
+body.dark .issueForm select{
+background:#161B27;
+border-color:rgba(255,255,255,0.1);
+color:#E5E7EB;
+}
+
+.issueForm input:focus,
+.issueForm select:focus{
+outline:none;
+border-color:#4FB6E8;
+}
+
+.issueForm small{
+color:#6B7280;
+font-size:12px;
+}
+
+.issueCheckbox{
+flex-direction:row !important;
+align-items:center;
+gap:10px !important;
+cursor:pointer;
+}
+
+.issueCheckbox input{
+width:auto !important;
+padding:0 !important;
+margin:0 !important;
+border:none !important;
+}
+
+.issueSummary{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px 20px;
+background:#F3F9FE;
+border-radius:12px;
+margin-top:8px;
+}
+
+body.dark .issueSummary{
+background:rgba(79,182,232,0.08);
+}
+
+.issueSummary strong{
+font-size:22px;
+font-weight:800;
+color:#4FB6E8;
+}
+
+.issueResult{
+padding:24px;
+background:white;
+border-radius:16px;
+border:1.5px solid #10B981;
+}
+
+body.dark .issueResult{
+background:#1E2535;
+}
+
+.issueResult h2{
+margin:0 0 8px;
+font-size:20px;
+}
