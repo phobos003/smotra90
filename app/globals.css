@@ -3812,3 +3812,205 @@ color:#1F2937;
 }
 
 body.dark .upcomingRevenue{color:#E5E7EB}
+
+/* ADMIN SALES */
+
+.salesHeader{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+flex-wrap:wrap;
+gap:12px;
+}
+
+.salesHeader h1{
+margin:0;
+}
+
+.csvBtn{
+padding:10px 18px;
+border-radius:10px;
+border:1.5px solid #4FB6E8;
+background:white;
+color:#4FB6E8;
+font-weight:700;
+font-size:14px;
+cursor:pointer;
+transition:all 0.15s;
+}
+
+body.dark .csvBtn{
+background:transparent;
+}
+
+.csvBtn:hover{
+background:#4FB6E8;
+color:white;
+}
+
+.salesFilters{
+display:flex;
+gap:8px;
+align-items:center;
+margin-bottom:14px;
+flex-wrap:wrap;
+}
+
+.salesFilters input[type="search"]{
+flex:1;
+min-width:200px;
+padding:10px 14px;
+border:1.5px solid #E5E7EB;
+border-radius:10px;
+font-size:14px;
+font-family:inherit;
+background:white;
+color:#1F2937;
+}
+
+body.dark .salesFilters input[type="search"]{
+background:#1E2535;
+border-color:rgba(255,255,255,0.08);
+color:#E5E7EB;
+}
+
+.salesFilters select,
+.salesFilters input[type="date"]{
+padding:9px 12px;
+border:1.5px solid #E5E7EB;
+border-radius:10px;
+font-size:14px;
+font-family:inherit;
+background:white;
+color:#1F2937;
+}
+
+body.dark .salesFilters select,
+body.dark .salesFilters input[type="date"]{
+background:#1E2535;
+border-color:rgba(255,255,255,0.08);
+color:#E5E7EB;
+color-scheme:dark;
+}
+
+.salesDateField{
+display:flex;
+align-items:center;
+gap:6px;
+font-size:13px;
+color:#6B7280;
+}
+
+.salesSummary{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+padding:12px 16px;
+background:#F3F9FE;
+border-radius:10px;
+margin-bottom:16px;
+font-size:14px;
+color:#6B7280;
+}
+
+body.dark .salesSummary{
+background:rgba(79,182,232,0.08);
+color:#9CA3AF;
+}
+
+.salesSummary strong{
+color:#1F2937;
+font-weight:700;
+}
+
+body.dark .salesSummary strong{color:#E5E7EB}
+
+.salesTableWrap{
+overflow-x:auto;
+border:1px solid #E5E7EB;
+border-radius:14px;
+background:white;
+}
+
+body.dark .salesTableWrap{
+background:#1E2535;
+border-color:rgba(255,255,255,0.08);
+}
+
+.salesTable{
+width:100%;
+border-collapse:collapse;
+font-size:13px;
+}
+
+.salesTable th,
+.salesTable td{
+padding:10px 12px;
+text-align:left;
+border-bottom:1px solid #F3F4F6;
+white-space:nowrap;
+}
+
+body.dark .salesTable th,
+body.dark .salesTable td{
+border-bottom-color:rgba(255,255,255,0.05);
+}
+
+.salesTable th{
+background:#F9FAFB;
+font-weight:700;
+font-size:11px;
+text-transform:uppercase;
+letter-spacing:0.5px;
+color:#6B7280;
+position:sticky;
+top:0;
+}
+
+body.dark .salesTable th{
+background:#161B27;
+color:#9CA3AF;
+}
+
+.salesTable tbody tr:hover{
+background:#F9FAFB;
+}
+
+body.dark .salesTable tbody tr:hover{
+background:rgba(255,255,255,0.03);
+}
+
+.salesStatusPill{
+display:inline-block;
+padding:3px 10px;
+border-radius:12px;
+color:white;
+font-size:11px;
+font-weight:700;
+letter-spacing:0.3px;
+}
+
+.salesClient{
+white-space:normal !important;
+min-width:200px;
+}
+
+.salesClientSub{
+font-size:11px;
+color:#6B7280;
+margin-top:2px;
+}
+
+body.dark .salesClientSub{color:#9CA3AF}
+
+.salesIdLink{
+font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+font-size:11px;
+color:#4FB6E8;
+text-decoration:none;
+}
+
+.salesIdLink:hover{
+text-decoration:underline;
+}
