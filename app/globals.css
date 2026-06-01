@@ -3191,3 +3191,355 @@ background:#1E2535;
 margin:0 0 8px;
 font-size:20px;
 }
+
+/* ADMIN DATES — redesigned */
+
+.dateAddCard{
+background:linear-gradient(135deg,rgba(79,182,232,0.08),rgba(0,212,255,0.04));
+border:1.5px dashed rgba(79,182,232,0.35);
+border-radius:14px;
+padding:18px 20px;
+margin-bottom:28px;
+}
+
+body.dark .dateAddCard{
+background:linear-gradient(135deg,rgba(79,182,232,0.12),rgba(0,212,255,0.06));
+border-color:rgba(79,182,232,0.3);
+}
+
+.dateAddTitle{
+font-weight:700;
+font-size:14px;
+color:#4FB6E8;
+text-transform:uppercase;
+letter-spacing:1px;
+margin-bottom:12px;
+}
+
+.dateAddRow{
+display:flex;
+gap:10px;
+align-items:center;
+flex-wrap:wrap;
+}
+
+.dateAddRow input[type="date"]{
+flex:1;
+min-width:160px;
+padding:11px 14px;
+border:1.5px solid #E5E7EB;
+border-radius:10px;
+font-size:15px;
+font-family:inherit;
+background:white;
+color:#1F2937;
+}
+
+body.dark .dateAddRow input[type="date"]{
+background:#161B27;
+border-color:rgba(255,255,255,0.1);
+color:#E5E7EB;
+color-scheme:dark;
+}
+
+.dateAddRow input[type="date"]:focus{
+outline:none;
+border-color:#4FB6E8;
+}
+
+.dateAddCapacityField{
+display:flex;
+align-items:center;
+gap:6px;
+}
+
+.dateAddCapacityField input{
+width:80px;
+padding:11px 12px;
+border:1.5px solid #E5E7EB;
+border-radius:10px;
+font-size:15px;
+font-family:inherit;
+background:white;
+color:#1F2937;
+}
+
+body.dark .dateAddCapacityField input{
+background:#161B27;
+border-color:rgba(255,255,255,0.1);
+color:#E5E7EB;
+}
+
+.dateAddCapacityField span{
+color:#6B7280;
+font-size:13px;
+}
+
+.dateAddBtn{
+padding:11px 20px;
+border-radius:10px;
+border:none;
+background:linear-gradient(135deg,#4FB6E8,#00D4FF);
+color:white;
+font-weight:700;
+font-size:14px;
+cursor:pointer;
+transition:transform 0.15s, box-shadow 0.2s;
+}
+
+.dateAddBtn:hover:not(:disabled){
+transform:translateY(-1px);
+box-shadow:0 8px 20px rgba(79,182,232,0.35);
+}
+
+.dateAddBtn:disabled{
+opacity:0.5;
+cursor:not-allowed;
+}
+
+.dateMonth{
+margin-bottom:30px;
+}
+
+.dateMonthTitle{
+font-size:18px;
+font-weight:700;
+margin:0 0 14px;
+color:#6B7280;
+text-transform:capitalize;
+letter-spacing:-0.3px;
+}
+
+body.dark .dateMonthTitle{
+color:#9CA3AF;
+}
+
+.dateCards{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+gap:12px;
+}
+
+.dateCard{
+display:flex;
+background:white;
+border-radius:14px;
+border:1.5px solid #E5E7EB;
+overflow:hidden;
+transition:all 0.2s;
+}
+
+body.dark .dateCard{
+background:#1E2535;
+border-color:rgba(255,255,255,0.08);
+}
+
+.dateCard.active{
+border-color:rgba(79,182,232,0.4);
+}
+
+.dateCard.inactive{
+opacity:0.55;
+}
+
+.dateCard.full{
+border-color:rgba(239,68,68,0.4);
+}
+
+.dateCard:hover{
+transform:translateY(-1px);
+box-shadow:0 6px 16px rgba(0,0,0,0.06);
+}
+
+body.dark .dateCard:hover{
+box-shadow:0 6px 16px rgba(0,0,0,0.3);
+}
+
+.dateCardDate{
+width:80px;
+flex-shrink:0;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+padding:14px 8px;
+background:linear-gradient(135deg,#F3F9FE,#E8F4FB);
+color:#1F2937;
+}
+
+body.dark .dateCardDate{
+background:linear-gradient(135deg,rgba(79,182,232,0.1),rgba(0,212,255,0.04));
+color:#E5E7EB;
+}
+
+.dateCard.active .dateCardDate{
+background:linear-gradient(135deg,#4FB6E8,#00D4FF);
+color:white;
+}
+
+.dateCard.full .dateCardDate{
+background:linear-gradient(135deg,#FECACA,#FCA5A5);
+color:#7F1D1D;
+}
+
+.dateCardDay{
+font-size:30px;
+font-weight:800;
+line-height:1;
+letter-spacing:-1px;
+}
+
+.dateCardDay.weekend{
+color:inherit;
+}
+
+.dateCard.active .dateCardDay.weekend{
+opacity:0.95;
+}
+
+.dateCardMonth{
+font-size:11px;
+font-weight:600;
+text-transform:uppercase;
+letter-spacing:1px;
+opacity:0.7;
+margin-top:2px;
+}
+
+.dateCardWeekday{
+font-size:10px;
+font-weight:600;
+text-transform:uppercase;
+letter-spacing:1px;
+opacity:0.6;
+margin-top:6px;
+}
+
+.dateCardBody{
+flex:1;
+padding:12px 14px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+gap:8px;
+min-width:0;
+}
+
+.dateCardStats{
+display:flex;
+justify-content:space-between;
+font-size:12px;
+color:#6B7280;
+}
+
+body.dark .dateCardStats{
+color:#9CA3AF;
+}
+
+.dateCardStats strong{
+color:#1F2937;
+font-weight:700;
+}
+
+body.dark .dateCardStats strong{
+color:#E5E7EB;
+}
+
+.dateCardStats .soldOut{
+color:#EF4444;
+font-weight:700;
+}
+
+.dateCardProgress{
+height:5px;
+background:#E5E7EB;
+border-radius:4px;
+overflow:hidden;
+}
+
+body.dark .dateCardProgress{
+background:rgba(255,255,255,0.08);
+}
+
+.dateCardProgressFill{
+height:100%;
+background:linear-gradient(90deg,#4FB6E8,#00D4FF);
+transition:width 0.3s;
+}
+
+.dateCard.full .dateCardProgressFill{
+background:linear-gradient(90deg,#F59E0B,#EF4444);
+}
+
+.dateCardControls{
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+.dateCardCapacity{
+display:flex;
+align-items:center;
+gap:5px;
+flex:1;
+}
+
+.dateCardCapacity input{
+width:60px;
+padding:5px 8px;
+border:1.5px solid #E5E7EB;
+border-radius:7px;
+font-size:13px;
+font-family:inherit;
+background:white;
+color:#1F2937;
+}
+
+body.dark .dateCardCapacity input{
+background:#161B27;
+border-color:rgba(255,255,255,0.1);
+color:#E5E7EB;
+}
+
+.dateCardCapacity span{
+font-size:11px;
+color:#6B7280;
+}
+
+.dateCardDelete{
+padding:0;
+width:28px;
+height:28px;
+border-radius:7px;
+border:none;
+background:transparent;
+color:#EF4444;
+cursor:pointer;
+font-size:20px;
+line-height:1;
+flex-shrink:0;
+transition:background 0.15s;
+}
+
+.dateCardDelete:hover{
+background:rgba(239,68,68,0.1);
+}
+
+.dateEmpty{
+text-align:center;
+padding:48px 20px;
+color:#6B7280;
+background:white;
+border-radius:14px;
+border:1px dashed #E5E7EB;
+}
+
+body.dark .dateEmpty{
+background:#1E2535;
+border-color:rgba(255,255,255,0.08);
+color:#9CA3AF;
+}
+
+.dateEmpty p{
+margin:6px 0;
+}

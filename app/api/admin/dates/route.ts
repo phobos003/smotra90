@@ -5,7 +5,10 @@ import { prisma } from "@/lib/db"
 export const dynamic = "force-dynamic"
 
 export async function GET() {
+  const today = new Date()
+  today.setUTCHours(0, 0, 0, 0)
   const dates = await prisma.ticketDate.findMany({
+    where: { date: { gte: today } },
     orderBy: { date: "asc" },
   })
   return NextResponse.json({
