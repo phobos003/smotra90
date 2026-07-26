@@ -57,6 +57,9 @@ model Ticket {
   updatedAt   DateTime     @updatedAt
   paidAt      DateTime?
   usedAt      DateTime?
+  emailSent   Boolean      @default(false)
+  emailSentAt DateTime?
+  emailError  String?
 
   ticketDate  TicketDate   @relation(fields: [visitDate], references: [date])
 

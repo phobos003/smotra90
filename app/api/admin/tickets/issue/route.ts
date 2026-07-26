@@ -103,8 +103,18 @@ export async function POST(req: Request) {
         html: mail.html,
         text: mail.text,
       })
+      await prisma.ticket.updateMany({
+        where: { id: { in: tickets.map((t) => t.id) } },
+        data: { emailSent: true, emailSentAt: new Date(), emailError: null },
+      })
     } catch (err) {
       console.error("[issue] sendMail failed", err)
+      await prisma.ticket
+        .updateMany({
+          where: { id: { in: tickets.map((t) => t.id) } },
+          data: { emailError: (err instanceof Error ? err.message : String(err)).slice(0, 500) },
+        })
+        .catch(() => {})
     }
   }
 

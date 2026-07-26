@@ -78,8 +78,18 @@ export async function POST(req: Request) {
         html,
         text,
       })
+      await prisma.ticket.update({
+        where: { id: ticketId },
+        data: { emailSent: true, emailSentAt: new Date(), emailError: null },
+      })
     } catch (err) {
       console.error("[webhook] sendMail failed", err)
+      await prisma.ticket
+        .update({
+          where: { id: ticketId },
+          data: { emailError: (err instanceof Error ? err.message : String(err)).slice(0, 500) },
+        })
+        .catch(() => {})
     }
 
     return NextResponse.json({ ok: true })
