@@ -23,7 +23,7 @@ const [selected,setSelected] = useState<number | null>(null)
 const [menuOpen,setMenuOpen] = useState(false)
 const [darkMode,setDarkMode] = useState(false)
 const [openFaq,setOpenFaq] = useState<number | null>(null)
-const [buyModal,setBuyModal] = useState<{type:TicketType, label:string, price:string} | null>(null)
+const [buyModal,setBuyModal] = useState<TicketType | null>(null)
 
 const faqData = [
 {q:"Можно ли прийти с детьми?", a:"Да, мы рады гостям любого возраста. Дети до 7 лет включительно проходят бесплатно. Для безопасности детей на площадке установлены ограждения."},
@@ -491,14 +491,14 @@ style={{objectFit:"cover"}}
 <h3>{TICKET_CATALOG.ADULT.label}</h3>
 <p>Доступ на смотровую площадку и свободное время для прогулки.</p>
 <span className="price">{formatPrice(TICKET_CATALOG.ADULT.price)}</span>
-<button onClick={()=>setBuyModal({type:"ADULT",label:TICKET_CATALOG.ADULT.label,price:formatPrice(TICKET_CATALOG.ADULT.price)})}>Купить</button>
+<button onClick={()=>setBuyModal("ADULT")}>Купить</button>
 </div>
 
 <div className="ticketCard">
 <h3>{TICKET_CATALOG.CHILD.label}</h3>
 <p>Посещение площадки в для детей от 8 до 14 лет.</p>
 <span className="price">{formatPrice(TICKET_CATALOG.CHILD.price)}</span>
-<button onClick={()=>setBuyModal({type:"CHILD",label:TICKET_CATALOG.CHILD.label,price:formatPrice(TICKET_CATALOG.CHILD.price)})}>Купить</button>
+<button onClick={()=>setBuyModal("CHILD")}>Купить</button>
 </div>
 
 <div className="ticketCard vip featured">
@@ -506,7 +506,7 @@ style={{objectFit:"cover"}}
 <h3>{TICKET_CATALOG.FAMILY.label}</h3>
 <p>Два взрослых и один детский.</p>
 <span className="price">{formatPrice(TICKET_CATALOG.FAMILY.price)}</span>
-<button onClick={()=>setBuyModal({type:"FAMILY",label:TICKET_CATALOG.FAMILY.label,price:formatPrice(TICKET_CATALOG.FAMILY.price)})}>Купить</button>
+<button onClick={()=>setBuyModal("FAMILY")}>Купить</button>
 </div>
 
 </div>
@@ -663,9 +663,8 @@ className="telegramButton"
 <BuyTicketModal
 open={buyModal !== null}
 onClose={()=>setBuyModal(null)}
-type={buyModal?.type || "ADULT"}
-typeLabel={buyModal?.label || ""}
-price={buyModal?.price || ""}
+catalog={TICKET_CATALOG}
+initialType={buyModal || "ADULT"}
 />
 
 {selected !== null && (

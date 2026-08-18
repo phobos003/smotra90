@@ -52,7 +52,7 @@ model Ticket {
   phone       String?
   visitDate   DateTime     @db.Date
   status      TicketStatus @default(PENDING)
-  paymentId   String?      @unique
+  paymentId   String?
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
   paidAt      DateTime?
