@@ -511,6 +511,40 @@ style={{objectFit:"cover"}}
 
 </div>
 
+<div style={{marginTop:"clamp(40px,6vw,64px)",padding:"clamp(22px,4vw,40px)",border:"1px solid rgba(128,128,128,0.28)",borderRadius:24,maxWidth:960,marginLeft:"auto",marginRight:"auto"}}>
+<h3 style={{marginTop:0,marginBottom:14,fontSize:"clamp(21px,3vw,28px)",lineHeight:1.25}}>Посещение для школьных и организованных групп</h3>
+<p style={{margin:"0 0 22px",lineHeight:1.65,opacity:0.85}}>Не знаете, куда отправиться всем классом? Подарите детям яркие впечатления, красивые панорамные виды и фотографии, которые останутся на память! Посещение нашей смотровой площадки — это отличный вариант для школьной экскурсии, выпускного класса или организованной детской группы.</p>
+
+<p style={{margin:"0 0 8px",fontWeight:600}}>В стоимость детского билета (800&nbsp;₽) входит:</p>
+<ul style={{margin:"0 0 24px",paddingLeft:20,lineHeight:1.8,opacity:0.9}}>
+<li>посещение смотровой площадки;</li>
+<li>индивидуальная экскурсия с нашим гидом;</li>
+<li>мороженое для каждого ребёнка;</li>
+<li>свободное пребывание на площадке без ограничения по времени.</li>
+</ul>
+
+<div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(240px,1fr))",gap:16,marginBottom:24}}>
+<div style={{padding:"18px 20px",border:"1px solid rgba(128,128,128,0.22)",borderRadius:16}}>
+<h4 style={{margin:"0 0 10px",fontSize:17}}>Стоимость</h4>
+<p style={{margin:"0 0 4px",opacity:0.9}}>Детский билет — <b>800&nbsp;₽</b></p>
+<p style={{margin:0,opacity:0.9}}>Взрослый билет — <b>1&nbsp;800&nbsp;₽</b></p>
+</div>
+<div style={{padding:"18px 20px",border:"1px solid rgba(128,128,128,0.22)",borderRadius:16}}>
+<h4 style={{margin:"0 0 10px",fontSize:17}}>Сопровождающие</h4>
+<p style={{margin:"0 0 8px",opacity:0.9}}>Для групп <b>от 15 детей</b>: 1 сопровождающий взрослый проходит бесплатно на каждые 5 детей.</p>
+<p style={{margin:0,opacity:0.9}}>В группах менее 15 детей сопровождающие приобретают билеты по стандартной стоимости — 1&nbsp;800&nbsp;₽ за человека.</p>
+</div>
+</div>
+
+<p style={{margin:"0 0 20px",lineHeight:1.65,opacity:0.85}}>Мы с удовольствием поможем организовать комфортное посещение и сделаем всё, чтобы ваша группа получила только самые яркие впечатления! Чтобы забронировать дату, свяжитесь с нашим менеджером любым удобным способом — поможем подобрать удобное время и ответим на все вопросы.</p>
+
+<div style={{display:"flex",flexWrap:"wrap",gap:12}}>
+<a href="tel:+79264100010" style={{display:"inline-block",padding:"13px 26px",borderRadius:12,background:"linear-gradient(135deg,#4FB6E8,#00D4FF)",color:"#fff",textDecoration:"none",fontWeight:600}}>Позвонить менеджеру</a>
+<a href="https://t.me/bezslova" target="_blank" rel="noopener noreferrer" style={{display:"inline-block",padding:"13px 26px",borderRadius:12,border:"1px solid rgba(128,128,128,0.4)",color:"inherit",textDecoration:"none",fontWeight:600}}>Написать в Telegram</a>
+<a href="mailto:info@visota90.ru" style={{display:"inline-block",padding:"13px 26px",borderRadius:12,border:"1px solid rgba(128,128,128,0.4)",color:"inherit",textDecoration:"none",fontWeight:600}}>Написать на почту</a>
+</div>
+</div>
+
 </section>
 
 <section id="about" className="about fadeUp">
