@@ -516,11 +516,13 @@ style={{objectFit:"cover"}}
 <p style={{margin:"0 0 22px",lineHeight:1.65,opacity:0.85}}>Не знаете, куда отправиться всем классом? Подарите детям яркие впечатления, красивые панорамные виды и фотографии, которые останутся на память! Посещение нашей смотровой площадки — это отличный вариант для школьной экскурсии, выпускного класса или организованной детской группы.</p>
 
 <p style={{margin:"0 0 8px",fontWeight:600}}>В стоимость детского билета (800&nbsp;₽) входит:</p>
-<ul style={{margin:"0 0 24px",paddingLeft:20,lineHeight:1.8,opacity:0.9}}>
-<li>посещение смотровой площадки;</li>
-<li>индивидуальная экскурсия с нашим гидом;</li>
-<li>мороженое для каждого ребёнка;</li>
-<li>свободное пребывание на площадке без ограничения по времени.</li>
+<ul style={{listStyle:"none",margin:"0 0 24px",padding:0,lineHeight:1.7,opacity:0.9}}>
+{["посещение смотровой площадки","индивидуальная экскурсия с нашим гидом","мороженое для каждого ребёнка","свободное пребывание на площадке без ограничения по времени"].map((item)=>(
+<li key={item} style={{display:"flex",alignItems:"flex-start",justifyContent:"center",gap:8,margin:"6px 0"}}>
+<span style={{color:"#00D4FF",fontWeight:700,flexShrink:0}}>✓</span>
+<span>{item}</span>
+</li>
+))}
 </ul>
 
 <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(240px,1fr))",gap:16,marginBottom:24}}>
